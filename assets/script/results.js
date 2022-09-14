@@ -1,7 +1,8 @@
 var apiKey ="NzE2OGZiMzEtYjAyMi00ZjM5LWI2ZGEtNzUwZWI3YmExMWQ1"
 //from window query
-
+var querySearch = document.location.search.split("?=")[1]
 var searchTerms
+searchTerms = "/" + querySearch
 //placeholder til window quuery is built
 searchTerms = "/g.1051,g.1050"
 
