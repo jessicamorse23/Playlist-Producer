@@ -1,11 +1,9 @@
-
-
 * {
     margin: 20px;
 }
 
 .card {
-    width: 75px;
+    margin: 20px;
 }
 
 body{
@@ -44,6 +42,12 @@ body,h1,h2,h3,h4,h5,h6 {
 .emoji-row-1, .emoji-row-2 {
     font-size: 400%;
     padding-top: 5rem;
+}
+
+custom-btn-details, .custom-btn-like, .custom-btn-submit {
+    background-color: var(--midBluePurp);
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .custom-btn {
