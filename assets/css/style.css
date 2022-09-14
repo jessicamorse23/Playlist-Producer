@@ -8,11 +8,16 @@
     width: 75px;
 }
 
+<<<<<<< HEAD
+body {
+    background-color: var(--lavenderGrey);
+=======
 body{
     background-color: var(--lavenderGrey);
 }
 
 body,h1,h2,h3,h4,h5,h6 {
+>>>>>>> 9c5873162cb29b8b75cde58c709e86e1658c7c91
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
@@ -30,6 +35,8 @@ body,h1,h2,h3,h4,h5,h6 {
     color: white;
     text-align: center;
 }
+<<<<<<< HEAD
+=======
 
 .h2-mood-text {
     text-align: center;
@@ -65,3 +72,4 @@ body,h1,h2,h3,h4,h5,h6 {
     opacity: 100%;
 }
 
+>>>>>>> 9c5873162cb29b8b75cde58c709e86e1658c7c91

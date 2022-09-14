@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css"
         crossorigin="anonymous">
@@ -12,26 +16,18 @@
 </head>
 
 <body>
-<div class="grid-y medium-grid-frame">
-    <div class="grid-container">
-    <div class="grid-x grid-padding-x">
-        <header>
-      <h2>Here are some suggested playlists based on your mood!</h2>
-    </header>
-        <div class="cell medium-3">
+  <header>
+    <div class="grid-x">
+        <div class="header flex-child-auto">
+            <h1>Here are some playlists based on your mood! </h1>
         </div>
-        <div class="cell medium-3 medium-cell-block">
-        </div>
-        <div class="cell medium-3">
-        </div>
-      </div>
-    </div>
+</header>
     <div class="cell medium-auto medium-cell-block-container">
       <div class="grid-x grid-margin-x align-justify">
         <div class="cell medium-3 medium-cell-block-y">
             <div class="card" style="width: 300px;">
-                <div class="card-divider">
-                  This is a header
+                <div class="card-divider" id="moods">
+                  Moods 
                 </div>
                 <img src="assets/img/generic/rectangle-1.jpg">
                 <div class="card-section">
@@ -42,8 +38,8 @@
         </div>
         <div class="cell medium-3 medium-cell-block-y">
           <div class="card" style="width: 300px;">
-            <div class="card-divider">
-              This is a header
+            <div class="card-divider" id="playlist-1">
+             Playlist 1
             </div>
             <img src="assets/img/generic/rectangle-1.jpg">
             <div class="card-section">
@@ -54,8 +50,8 @@
         </div>
         <div class="cell medium-3 medium-cell-block-y">
             <div class="card" style="width: 300px;">
-                <div class="card-divider">
-                  This is a header
+                <div class="card-divider" id="playlist-2">
+                  Playlist 2
                 </div>
                 <img src="assets/img/generic/rectangle-1.jpg">
                 <div class="card-section">
@@ -66,8 +62,8 @@
           </div>
           <div class="cell medium-3 medium-cell-block-y">
             <div class="card" style="width: 300px;">
-                <div class="card-divider">
-                  This is a header
+                <div class="card-divider" id="notmymood">
+                 I'm not in the mood for these . . .
                 </div>
                 <img src="assets/img/generic/rectangle-1.jpg">
                 <div class="card-section">
@@ -80,8 +76,8 @@
         <div class="grid-x grid-margin-x">
         <div class="cell medium-3 medium-cell-block-y">
             <div class="card" style="width: 300px;">
-                <div class="card-divider">
-                  This is a header
+                <div class="card-divider" id="favorites">
+                 Favorites
                 </div>
                 <img src="assets/img/generic/rectangle-1.jpg">
                 <div class="card-section">
@@ -92,8 +88,8 @@
       </div>
       <div class="cell medium-3 medium-cell-block-y">
         <div class="card" style="width: 300px;">
-            <div class="card-divider">
-              This is a header
+            <div class="card-divider" id="playlist-3">
+              Playlist 3
             </div>
             <img src="assets/img/generic/rectangle-1.jpg">
             <div class="card-section">
@@ -104,8 +100,8 @@
     </div>
    <div class="cell medium-3 medium-cell-block-y">
     <div class="card" style="width: 300px;">
-        <div class="card-divider">
-          This is a header
+        <div class="card-divider" id="playlist-4">
+         Playlist 4 
         </div>
         <img src="assets/img/generic/rectangle-1.jpg">
         <div class="card-section">
