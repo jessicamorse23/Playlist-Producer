@@ -6,3 +6,23 @@
 .card {
     width: 75px;
 }
+
+body {
+    background-color: var(--lavenderGrey);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+:root {
+    --deepPurple: #242038;
+    --slateBlue: #725AC1;
+    --midBluePurp: #8D86C9;
+    --lavenderGrey: #CAC4CE;
+    --linen: #F7ECE1;
+}
+
+.header {
+    padding: 1rem;
+    background-color: var(--midBluePurp);
+    color: white;
+    text-align: center;
+}
