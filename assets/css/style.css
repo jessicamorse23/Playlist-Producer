@@ -1,3 +1,13 @@
+
+
+* {
+    margin: 20px;
+}
+
+.card {
+    width: 75px;
+}
+
 body{
     background-color: var(--lavenderGrey);
 }
@@ -54,3 +64,4 @@ body,h1,h2,h3,h4,h5,h6 {
 .happy:hover, .sad:hover, .angry:hover, .loving:hover, .silly:hover, .cheerful:hover, .motivated:hover, .sleepy:hover {
     opacity: 100%;
 }
+
