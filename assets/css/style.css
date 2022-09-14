@@ -1,4 +1,5 @@
 
+
 * {
     margin: 20px;
 }
@@ -6,3 +7,61 @@
 .card {
     width: 75px;
 }
+
+body{
+    background-color: var(--lavenderGrey);
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+:root {
+    --deepPurple: #242038;
+    --slateBlue: #725AC1;
+    --midBluePurp: #8D86C9;
+    --lavenderGrey: #CAC4CE;
+    --linen: #F7ECE1;
+}
+
+.header {
+    padding: 1rem;
+    background-color: var(--midBluePurp);
+    color: white;
+    text-align: center;
+}
+
+.h2-mood-text {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.h4-img-text {
+    text-align: center;
+}
+
+.emoji-row-1, .emoji-row-2 {
+    font-size: 400%;
+    padding-top: 5rem;
+}
+
+.custom-btn {
+    background-color: var(--midBluePurp);
+    margin-top: 5rem;
+    max-width: 20%;
+    border-radius: 10px;
+}
+
+.custom-btn:hover {
+    background-color: var(--slateBlue);
+}
+
+.happy, .sad, .angry, .loving, .silly, .cheerful, .motivated, .sleepy{
+    opacity: 50%;
+}
+
+.happy:hover, .sad:hover, .angry:hover, .loving:hover, .silly:hover, .cheerful:hover, .motivated:hover, .sleepy:hover {
+    opacity: 100%;
+}
+
