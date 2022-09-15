@@ -26,21 +26,40 @@ function getPlaylists() {
         .then(function (response) {
             if (response.ok) {
                 return response.json().then(function (data) {
-                    // console.log(data)
+                    console.log(data)
                     //build playlist objects and artist id array
                     for(var i = 0; i <data.playlists.length; i++) {
                         var playlist = {
+                            "id": data.playlists[i].id,
                             "name": data.playlists[i].name,
                             "image": data.playlists[i].images[0].url,
-                            "artists": data.playlists[i].links.sampleArtists.ids                            
+                            "artists": data.playlists[i].links.sampleArtists.ids,
+                            "weight": 0                            
                         }
                         for( var artist = 0; artist < playlist["artists"].length; artist++) {
-                            artistIDArr.push(playlist.artists[artist])
+                            //if artist is not already in list, add it
+                            if(artistIDArr.indexOf(playlist.artists[artist]) === -1) {
+                                artistIDArr.push(playlist.artists[artist])
+                            }
+                            // artistIDArr.push(playlist.artists[artist])
                         }
-                        playlistArr.push(playlist)
+                        //find dups
+                        var dupCheck = playlistArr.findIndex(function (current) {
+                            console.log(current.id +"  "+data.playlists[i].id+"  "+i);
+
+                            return (current.id == data.playlists[i].id) 
+                        });
+                        //if dup found, increae weight, else add it
+                        if (dupCheck > -1) {
+                                playlistArr[dupCheck].weight += 1
+                            }
+                            else {
+                                playlistArr.push(playlist)
+                            }
+                        //sort by weight
                     }
                     for(var pArr = 0; pArr < playlistArr.length; pArr++) {
-                        console.log("playlist array" + pArr +":" + playlistArr[pArr]["name"] + " " + playlistArr[pArr]["image"] + " " + playlistArr[pArr]["artists"] )
+                        console.log("playlist array" + pArr +":" + playlistArr[pArr]["name"] + " " + playlistArr[pArr]["image"] + " " + playlistArr[pArr]["artists"] + " " + playlistArr[pArr]["weight"])
                     }
                     getArtists();
                 });
