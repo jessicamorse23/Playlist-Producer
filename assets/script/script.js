@@ -34,8 +34,8 @@ $.each(checkedInput, function(){
     $('#cheerful').val('g.115,g.71,g.4,g.75,g.446');
     $('#motivated').val('g.5,g.146,g.71,g.246,g.394');
     $('#sleepy').val('g.299,g.21,g.453,g.438,g.69');
-console.log(checked);
+    alert("Genres are: " + checked.join(", "));
 }
-// $('button').on('click', checkInput)
+$('button').on('click', checkInput)
 
-$("button").on("click", goSearch)
+// $("button").on("click", goSearch)
