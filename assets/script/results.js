@@ -20,8 +20,32 @@ var artistNameArr = []
 //artist objects
 var artistDetail = []
 
+var playlist1 = $("#playlist-1");
+var playlist2 = $("#playlist-2");
+var playlist3 = $("#playlist-3");
+var playlist4 = $("#playlist-4");
+var listOffset = 0;
+
+function displayScreen() {
+    var p1Title = $("#playlist-1-title")
+    p1Title.text(playlistArr[listOffset].name)
+    var p1Img = $("#playlist-1-img")
+    p1Img.attr("src", playlistArr[listOffset].image)
+    console.log(p1Title)
+    var p1Details = $("#playlist-1-details")
+    var artistList = $("<ul>")
+    for(var a = 0; a < playlistArr[listOffset].artists.length; a++) {
+        //get artist name from artistDetail
+
+        var artistItem = $("<li>")
+        artistItem.text(playlistArr[listOffset].artists[a])
+        artistList.append(artistItem)
+    }
+    p1Details.append(artistList)
+}
+
 function getPlaylists() {
-    var getPlaylistsURL = napsterURL + genresURL + searchTerms + playlistURL + "?apikey=" + apiKey + "&limit=5"//&offset=" + offset
+    var getPlaylistsURL = napsterURL + genresURL + searchTerms + playlistURL + "?apikey=" + apiKey + "&limit=10"//&offset=" + offset
     fetch(getPlaylistsURL)
         .then(function (response) {
             if (response.ok) {
@@ -41,7 +65,6 @@ function getPlaylists() {
                             if(artistIDArr.indexOf(playlist.artists[artist]) === -1) {
                                 artistIDArr.push(playlist.artists[artist])
                             }
-                            // artistIDArr.push(playlist.artists[artist])
                         }
                         //find dups
                         var dupCheck = playlistArr.findIndex(function (current) {
@@ -94,6 +117,7 @@ function getArtists() {
                     for(var aArr = 0; aArr < artistNameArr.length; aArr++){
                         console.log("Artist Name" + aArr + " " + artistNameArr[aArr]["artistName"] + " " + artistNameArr[aArr]["artistID"]);
                     }
+                    displayScreen();
                 })
             }
             else {
