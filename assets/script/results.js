@@ -127,3 +127,13 @@ function getArtists() {
 }
 
 getPlaylists();
+
+var favoritesListEl = $("favorites");
+
+var printFavorites = function (playlist) {
+    var listEl = $("<li>"); 
+    console.log (a);
+    var listDetail = p1Details;
+    listEl.addClass (playlist.item).text(listDetail);
+    listEl.appendTo(favoritesListEl);
+}; 
