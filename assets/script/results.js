@@ -20,28 +20,53 @@ var artistNameArr = []
 //artist objects
 var artistDetail = []
 
-var playlist1 = $("#playlist-1");
-var playlist2 = $("#playlist-2");
-var playlist3 = $("#playlist-3");
-var playlist4 = $("#playlist-4");
-var listOffset = 0;
+var listIndex = 0;
 
 function displayScreen() {
-    var p1Title = $("#playlist-1-title")
-    p1Title.text(playlistArr[listOffset].name)
-    var p1Img = $("#playlist-1-img")
-    p1Img.attr("src", playlistArr[listOffset].image)
-    console.log(p1Title)
-    var p1Details = $("#playlist-1-details")
-    var artistList = $("<ul>")
-    for(var a = 0; a < playlistArr[listOffset].artists.length; a++) {
-        //get artist name from artistDetail
 
-        var artistItem = $("<li>")
-        artistItem.text(playlistArr[listOffset].artists[a])
-        artistList.append(artistItem)
+    for(card = 1; card <= 4; card++) {
+        var workingCard = $("#playlist-" + card)
+
+        var cardDiv = $("<div>")
+        cardDiv.addClass("card-divider")
+        var pTitle = $("<h2>")
+        pTitle.attr("id", "playlist-" + card + "-title")
+        pTitle.text(playlistArr[listIndex].name)
+        cardDiv.append(pTitle)
+
+        var pImg = $("<img>")
+        pImg.attr("src", "https://" + playlistArr[listIndex].image)
+
+        var cardSect = $("<div>")
+        cardSect.addClass("card-section align-self-middle flex-child-auto")
+        var pDetailDesc = $("<p>")
+        pDetailDesc.text(playlistArr[listIndex].desc)
+        var pDetailArtists = $("<p>")
+        var pDetailArtistsList = $("<ul>")
+        for(var a = 0; a < playlistArr[listIndex].artists.length; a++) {
+            //get artist name from artistDetail
+    
+            var artistItem = $("<li>")
+            artistItem.text(playlistArr[listIndex].artists[a])
+            pDetailArtistsList.append(artistItem)
+        }
+        pDetailArtists.append(pDetailArtistsList)
+        var favBtn = $("<button>")
+        favBtn.addClass("custom-btn-like")
+        var favBtnText = $("<span>")
+        favBtnText.text("Like ❤️")
+        favBtn.append(favBtnText)
+
+        cardSect.append(pDetailDesc)
+        cardSect.append(pDetailArtists)
+        cardSect.append(favBtn)
+
+        workingCard.append(cardDiv)
+        workingCard.append(pImg)
+        workingCard.append(cardSect)
+
+        listIndex++
     }
-    p1Details.append(artistList)
 }
 
 function getPlaylists() {
@@ -50,13 +75,14 @@ function getPlaylists() {
         .then(function (response) {
             if (response.ok) {
                 return response.json().then(function (data) {
-                    console.log(data)
+                    // console.log(data)
                     //build playlist objects and artist id array
                     for(var i = 0; i <data.playlists.length; i++) {
                         var playlist = {
                             "id": data.playlists[i].id,
                             "name": data.playlists[i].name,
-                            "image": data.playlists[i].images[0].url,
+                            "desc": data.playlists[i].description,
+                            "image": data.playlists[i].images[0].url.split("://")[1],
                             "artists": data.playlists[i].links.sampleArtists.ids,
                             "weight": 0                            
                         }
@@ -87,9 +113,6 @@ function getPlaylists() {
                             return 1;
                         }
                     })
-                    for(var pArr = 0; pArr < playlistArr.length; pArr++) {
-                        console.log("playlist array " + pArr +":\nname " + playlistArr[pArr]["name"] + " \nimg " + playlistArr[pArr]["image"] + " \narts " + playlistArr[pArr]["artists"] + " \nwt " + playlistArr[pArr]["weight"])
-                    }
                     getArtists();
                 });
             }
@@ -105,7 +128,6 @@ function getArtists() {
         .then(function (response) {
             if(response.ok) {
                 return response.json().then(function (data) {
-                    // console.log(data)
                     //build artist objects
                     for(var x  = 0; x < data.artists.length; x++) {
                         var artistDetail = {
@@ -113,9 +135,6 @@ function getArtists() {
                             "artistID" : data.artists[x].id
                         }
                         artistNameArr.push(artistDetail)
-                    }
-                    for(var aArr = 0; aArr < artistNameArr.length; aArr++){
-                        console.log("Artist Name" + aArr + " " + artistNameArr[aArr]["artistName"] + " " + artistNameArr[aArr]["artistID"]);
                     }
                     displayScreen();
                 })
