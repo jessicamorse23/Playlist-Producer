@@ -46,6 +46,10 @@ body,h1,h2,h3,h4,h5,h6 {
     border-radius: 20px;
 }
 
+.custom-btn-details:hover, .custom-btn-like:hover, .custom-btn-submit:hover {
+    background-color: var(--slateBlue);
+}
+
 .custom-btn {
     background-color: var(--midBluePurp);
     margin-top: 5rem;
