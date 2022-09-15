@@ -5,7 +5,7 @@ var querySearch = document.location.search.split("?=")[1]
 var searchTerms
 searchTerms = "/" + querySearch
 
-var napsterURL = "http://api.napster.com/v2.2"
+var napsterURL = "https://api.napster.com/v2.2"
 var genresURL = "/genres"
 var playlistURL = "/playlists/top"
 var artistsURL = "/artists"
