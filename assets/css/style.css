@@ -2,10 +2,6 @@
     margin: 20px;
 }
 
-.card {
-    margin: 20px;
-}
-
 body{
     background-color: var(--lavenderGrey);
 }
@@ -44,7 +40,7 @@ body,h1,h2,h3,h4,h5,h6 {
     padding-top: 5rem;
 }
 
-custom-btn-details, .custom-btn-like, .custom-btn-submit {
+.custom-btn-details, .custom-btn-like, .custom-btn-submit {
     background-color: var(--midBluePurp);
     padding: 10px;
     border-radius: 20px;
@@ -61,11 +57,26 @@ custom-btn-details, .custom-btn-like, .custom-btn-submit {
     background-color: var(--slateBlue);
 }
 
-.happy, .sad, .angry, .loving, .silly, .cheerful, .motivated, .sleepy{
+.happy, .sad, .angry, .loving, .silly, .cheerful, .motivated, .sleepy, .try-again{
     opacity: 50%;
 }
 
-.happy:hover, .sad:hover, .angry:hover, .loving:hover, .silly:hover, .cheerful:hover, .motivated:hover, .sleepy:hover {
+.happy:hover, .sad:hover, .angry:hover, .loving:hover, .silly:hover, .cheerful:hover, .motivated:hover, .sleepy:hover, .try-again:hover {
     opacity: 100%;
 }
+
+.card {
+    margin: 20px;
+    background-color: var(--linen);
+}
+
+.card-divider {
+    text-align: center;
+    background-color: var(--midBluePurp);
+}
+ #try-again-image {
+    font-size: 400%;
+    padding-top: 5rem;
+ }
+
 
