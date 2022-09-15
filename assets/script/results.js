@@ -44,10 +44,13 @@ function displayScreen() {
         var pDetailArtists = $("<p>")
         var pDetailArtistsList = $("<ul>")
         for(var a = 0; a < playlistArr[listIndex].artists.length; a++) {
-            //get artist name from artistDetail
+            //get index of artist name from artistNameArr
+            var artistName = artistNameArr.findIndex(function (nIndex) {
+                return nIndex.artistID === playlistArr[listIndex].artists[a]
+            })
     
             var artistItem = $("<li>")
-            artistItem.text(playlistArr[listIndex].artists[a])
+            artistItem.text(artistNameArr[artistName].artistName)
             pDetailArtistsList.append(artistItem)
         }
         pDetailArtists.append(pDetailArtistsList)
@@ -75,7 +78,6 @@ function getPlaylists() {
         .then(function (response) {
             if (response.ok) {
                 return response.json().then(function (data) {
-                    // console.log(data)
                     //build playlist objects and artist id array
                     for(var i = 0; i <data.playlists.length; i++) {
                         var playlist = {
