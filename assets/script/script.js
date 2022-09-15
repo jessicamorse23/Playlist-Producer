@@ -36,6 +36,6 @@ $.each(checkedInput, function(){
     $('#sleepy').val('g.299,g.21,g.453,g.438,g.69');
     alert("Genres are: " + checked.join(", "));
 }
-$('button').on('click', checkInput)
+// $('button').on('click', checkInput)
 
-// $("button").on("click", goSearch)
+$("button").on("click", goSearch)
