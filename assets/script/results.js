@@ -45,8 +45,6 @@ function getPlaylists() {
                         }
                         //find dups
                         var dupCheck = playlistArr.findIndex(function (current) {
-                            console.log(current.id +"  "+data.playlists[i].id+"  "+i);
-
                             return (current.id == data.playlists[i].id) 
                         });
                         //if dup found, increae weight, else add it
@@ -58,8 +56,16 @@ function getPlaylists() {
                             }
                         //sort by weight
                     }
+                    playlistArr.sort(function (item1, item2) {
+                        if(item1.weight > item2.weight) {
+                            return -1;
+                        }
+                        else {
+                            return 1;
+                        }
+                    })
                     for(var pArr = 0; pArr < playlistArr.length; pArr++) {
-                        console.log("playlist array" + pArr +":" + playlistArr[pArr]["name"] + " " + playlistArr[pArr]["image"] + " " + playlistArr[pArr]["artists"] + " " + playlistArr[pArr]["weight"])
+                        console.log("playlist array " + pArr +":\nname " + playlistArr[pArr]["name"] + " \nimg " + playlistArr[pArr]["image"] + " \narts " + playlistArr[pArr]["artists"] + " \nwt " + playlistArr[pArr]["weight"])
                     }
                     getArtists();
                 });
