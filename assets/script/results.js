@@ -205,3 +205,21 @@ var printFavorites = function (playlist) {
     listEl.addClass (playlist.item).text(listDetail);
     listEl.appendTo(favoritesListEl);
 }; 
+
+$(document).on("click", ".custom-btn-like", function(e) {
+    console.log("this is the click");
+
+    var pTag = $(this).parent().children("p").eq(1)
+    var bandNames = [];
+    for (let i = 0; i < 4; i++) {
+        
+        var bandText = pTag.children("ul").children("li").eq(i).text()
+        console.log(bandText)
+        bandNames.push(bandText)
+    }
+    console.log(bandNames);
+    
+    pTag.push(bandNames);
+    localStorage.setItem("session", JSON.stringify(pTag));
+    localStorage.getItem()
+}) 
