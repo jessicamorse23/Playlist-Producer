@@ -223,3 +223,7 @@ $(document).on("click", ".custom-btn-like", function(e) {
     localStorage.setItem("session", JSON.stringify(pTag));
     localStorage.getItem()
 }) 
+
+$(document).ready(function() {
+    $("div").effect("slide");
+  });

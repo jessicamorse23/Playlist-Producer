@@ -33,3 +33,7 @@ function goSearch() {
 }
 
 $("button").on("click", goSearch)
+
+$(document).ready(function() {
+    $("div").effect("slide");
+  });
