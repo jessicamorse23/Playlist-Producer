@@ -56,7 +56,7 @@ function goSearch() {
     });
     var searchTerms = checked
     document.location.replace("./results.html?=" + searchTerms)
-    getPlaylists();
+    //getPlaylists();
 }
 
 function displayScreen() {
@@ -184,7 +184,17 @@ function getArtists() {
         })
 }
 
+function nextLists() {
+    for(var card = 1; card <= 4; card++) {
+        var workingCard = $("#playlist-" + card)
+            workingCard.text("")  
+    }
+    displayScreen();
+}
+
 getPlaylists();
+
+$("#nextBtn").on("click", nextLists)
 
 var favoritesListEl = $("favorites");
 
