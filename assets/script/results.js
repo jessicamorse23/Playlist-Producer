@@ -93,6 +93,7 @@ function displayScreen() {
         pDetailArtists.append(pDetailArtistsList)
         var favBtn = $("<button>")
         favBtn.addClass("custom-btn-like")
+        favBtn.attr("data-text", "playlist-" + card + "-title")
         var favBtnText = $("<span>")
         favBtnText.text("Like ❤️")
         favBtn.append(favBtnText)
@@ -106,7 +107,9 @@ function displayScreen() {
         workingCard.append(cardSect)
 
         listIndex++
+        
     }
+    buildFavorites();
 }
 
 function getPlaylists() {
@@ -192,6 +195,30 @@ function nextLists() {
     displayScreen();
 }
 
+function buildFavorites() {
+    var savedFavs = localStorage.getItem("savedPlaylists")
+
+    var favEl = $("#fav-content")
+    var favContent
+
+
+    if (savedFavs == null) {
+        favContent = $("<h3>")
+        favContent.text("Nothing here yet!")
+    }
+    else {
+        console.log("favs");
+        favContent = $("<ul>")
+        var savedFavsArr = savedFavs.split(", ")
+        for(var f = 0; f < savedFavsArr.length; f++) {
+            var favLi = $("<li>")
+            favLi.text(savedFavsArr[f])
+            favContent.append(favLi)
+        }
+    }
+    favEl.append(favContent)
+}
+
 getPlaylists();
 
 $("#nextBtn").on("click", nextLists)
@@ -207,19 +234,18 @@ var printFavorites = function (playlist) {
 }; 
 
 $(document).on("click", ".custom-btn-like", function(e) {
-    console.log("this is the click");
+    var clickTarget = $(e.target)
+    var favTextID = clickTarget.attr("data-text")
+    var favText = $("#" + favTextID).text()
 
-    var pTag = $(this).parent().children("p").eq(1)
-    var bandNames = [];
-    for (let i = 0; i < 4; i++) {
-        
-        var bandText = pTag.children("ul").children("li").eq(i).text()
-        console.log(bandText)
-        bandNames.push(bandText)
-    }
-    console.log(bandNames);
-    
-    pTag.push(bandNames);
-    localStorage.setItem("session", JSON.stringify(pTag));
-    localStorage.getItem()
+    var currentSaved = localStorage.getItem("savedPlaylists")
+    var newSaved
+        if(currentSaved == null) {
+            newSaved = favText
+        }
+        else {
+            newSaved = currentSaved + ", " + favText
+        }
+        localStorage.setItem("savedPlaylists", newSaved)
+        buildFavorites();
 }) 
