@@ -34,6 +34,32 @@ $(document).ready(function () {
     $('#sleepyCheck').hide()
 })
 
+// toggles opacity of icons
+$('#happy').click(function() {
+    $( "#happy" ).toggleClass( "opacityMax" );
+  });
+  $('#sad').click(function() {
+    $( "#sad" ).toggleClass( "opacityMax" );
+  });
+  $('#angry').click(function() {
+    $( "#angry" ).toggleClass( "opacityMax" );
+  });
+  $('#loving').click(function() {
+    $( "#loving" ).toggleClass( "opacityMax" );
+  });
+  $('#silly').click(function() {
+    $( "#silly" ).toggleClass( "opacityMax" );
+  });
+  $('#cheerful').click(function() {
+    $( "#cheerful" ).toggleClass( "opacityMax" );
+  });
+  $('#motivated').click(function() {
+    $( "#motivated" ).toggleClass( "opacityMax" );
+  });
+  $('#sleepy').click(function() {
+    $( "#sleepy" ).toggleClass( "opacityMax" );
+  });
+
 // sets values of moods to the genres
 $('#happyCheck').val('g.115,g.71');
 $('#sadCheck').val('g.33,g.438');
@@ -249,3 +275,6 @@ $(document).on("click", ".custom-btn-like", function(e) {
         localStorage.setItem("savedPlaylists", newSaved)
         buildFavorites();
 }) 
+$(document).ready(function() {
+    $("div").effect("slide");
+  });
