@@ -43,6 +43,10 @@ body,h1,h2,h3,h4,h5,h6 {
     font-size: 400%;
 }
 
+.icon-med {
+    font-size: 300%;
+}
+
 .custom-btn-details, .custom-btn-like, .custom-btn-submit {
     background-color: var(--midBluePurp);
     padding: 10px;
