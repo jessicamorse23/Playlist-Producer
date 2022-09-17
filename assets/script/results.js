@@ -120,9 +120,7 @@ function displayScreen() {
         var favBtn = $("<button>")
         favBtn.addClass("custom-btn-like")
         favBtn.attr("data-text", "playlist-" + card + "-title")
-        var favBtnText = $("<span>")
-        favBtnText.text("Like ❤️")
-        favBtn.append(favBtnText)
+        favBtn.text("Like ❤️")
 
         cardSect.append(pDetailDesc)
         cardSect.append(pDetailArtists)
@@ -227,13 +225,13 @@ function buildFavorites() {
     var favEl = $("#fav-content")
     var favContent
 
+    favEl.text("")
 
     if (savedFavs == null) {
         favContent = $("<h3>")
         favContent.text("Nothing here yet!")
     }
     else {
-        console.log("favs");
         favContent = $("<ul>")
         var savedFavsArr = savedFavs.split(", ")
         for(var f = 0; f < savedFavsArr.length; f++) {
@@ -249,16 +247,6 @@ getPlaylists();
 
 $("#nextBtn").on("click", nextLists)
 
-var favoritesListEl = $("favorites");
-
-var printFavorites = function (playlist) {
-    var listEl = $("<li>"); 
-    console.log (a);
-    var listDetail = p1Details;
-    listEl.addClass (playlist.item).text(listDetail);
-    listEl.appendTo(favoritesListEl);
-}; 
-
 $(document).on("click", ".custom-btn-like", function(e) {
     var clickTarget = $(e.target)
     var favTextID = clickTarget.attr("data-text")
@@ -266,7 +254,7 @@ $(document).on("click", ".custom-btn-like", function(e) {
 
     var currentSaved = localStorage.getItem("savedPlaylists")
     var newSaved
-        if(currentSaved == null) {
+        if(currentSaved == null || currentSaved == "") {
             newSaved = favText
         }
         else {
