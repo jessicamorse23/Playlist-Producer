@@ -82,17 +82,13 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 .card {
-    margin: 20px;
+    margin: 40px;
     background-color: var(--linen);
+    box-shadow: 10px 10px 5px #242038;
 }
 
 .card-divider {
     text-align: center;
     background-color: var(--midBluePurp);
 }
- #try-again-image {
-    font-size: 400%;
-    padding-top: 5rem;
- }
-
 
